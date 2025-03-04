@@ -1,0 +1,20 @@
+/* .vitepress/theme/style/blockquote.css */
+.vp-doc blockquote {
+    border-radius: 10px;
+    padding: 18px 20px 20px 15px;
+    position: relative;
+    background-color: var(--vp-c-gray-soft);
+    border-left: 6px solid var(--vp-c-green-2);
+}
+
+/* .vitepress/theme/custom.css */
+h2 img.avatar {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 可选阴影 */
+}
