@@ -17,12 +17,3 @@ npm run dev
 ```sh
 npm run build
 ```
-<<<<<<< .mine
-
-
-
-=======
-done
-
-
->>>>>>> .theirs
