@@ -8,8 +8,7 @@ export default defineConfig({
 
   head: [
     /**
-     * 这里用到了公用目录 public ： 资源路径可以直接用绝对路径 /xxx
-     * 渲染效果 ：<link rel="icon" href="/abc.png">
+     * 公用目录 public
      */
     ['link', { rel: 'icon', href: '/logo.png' }],
     ['script', { src: '/live2d.js' }],
@@ -23,7 +22,7 @@ export default defineConfig({
     /* 右侧大纲配置 */
     outline: {
       level: 'deep',
-      label: '目录',
+      label: '当前页大纲',
     },
     search: {
       provider: 'local',
@@ -39,7 +38,7 @@ export default defineConfig({
             footer: {
               selectText: '选择',
               navigateText: '切换',
-              closeText:'关闭'
+              closeText: '关闭'
             }
           }
         }
@@ -52,7 +51,7 @@ export default defineConfig({
       },
       {
         icon: 'gitee',
-        link: 'https://gitee.com/hpice',  // 确保链接是正确的
+        link: 'https://gitee.com/hpice',
       }
     ],
     footer: {

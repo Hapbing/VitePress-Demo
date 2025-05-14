@@ -25,13 +25,13 @@ features:
     linkText: 工具导航
   - icon: 🕹️
     title: CV作品集
-    link: /demo/
+    link: /demo/village
     linkText: 作品导航
     details: 开发好难，算了，不管了直接CV
   - icon: 💣
     title: 踩坑日记
     details: 踩过的坑，再踩一遍就不难受了🤤
-    link: /notes/
+    link: /notes/tresjs
     linkText: 踩坑日记
   - icon: 🛏️
     title: 一个想躺平的开发小白

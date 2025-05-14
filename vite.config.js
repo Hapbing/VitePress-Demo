@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:'./',
+  base: './',
   plugins: [
     vue(),
     vueDevTools(),
@@ -15,7 +15,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       css: {
-        // 可选的其他配置
+
       }
     }
   },
