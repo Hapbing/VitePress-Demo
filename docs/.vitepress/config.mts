@@ -10,8 +10,8 @@ export default defineConfig({
     /**
      * 公用目录 public
      */
-    ['link', { rel: 'icon', href: '/logo.png' }],
-    ['script', { src: '/live2d.js' }],
+    ['link', { rel: 'icon', href: 'image/logo.png' }],
+    ['script', { src: 'icon/icon.js' }],
   ],
   /* 主题配置 */
   themeConfig: {

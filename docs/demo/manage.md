@@ -1,8 +1,8 @@
 
 
-## ![我的头像](/logo.png){.avatar}本地运行开源后台管理系统框架
+## ![我的头像](/image/logo.png){.avatar}本地运行开源后台管理系统框架
 <p align="center">
-  <img src="/tanb.png" alt="home" width="80%" />
+  <img src="/image/tanb.png" alt="home" width="80%" />
 </p>
 
 ::: tip

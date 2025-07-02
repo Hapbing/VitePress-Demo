@@ -1,6 +1,6 @@
-## ![我的头像](/logo.png){.avatar}污染环境风险防控GIS系统
+## ![我的头像](/image/logo.png){.avatar}污染环境风险防控GIS系统
 <p align="center">
-  <img src="/gufei.png" alt="home" width="80%" />
+  <img src="/image/gufei.png" alt="home" width="80%" />
 </p>
 
 >接触到了Vue，使用Vue技术进行固废系统开发。

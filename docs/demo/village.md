@@ -1,7 +1,7 @@
-## ![我的头像](/logo.png){.avatar}村落奖补平台首页设计
+## ![我的头像](/image/logo.png){.avatar}村落奖补平台首页设计
 
 <p align="center">
-  <img src="/miyunjiangbu.png" alt="home" width="80%" />
+  <img src="/image/miyunjiangbu.png" alt="home" width="80%" />
 </p>
 
 >第一次接触HTML，开发系统宣传页。

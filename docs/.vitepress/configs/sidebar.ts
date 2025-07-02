@@ -26,6 +26,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
                 { text: '污染环境风险防控后台系统', link: '/demo/gisBackground' },
                 { text: '电站信息化数字孪生系统', link: '/demo/power' },
                 { text: '后台管理系统框架', link: '/demo/manage' },
+                { text: '桌面端合并工具', link: '/demo/pictureMerge' },
             ]
         }
     ]

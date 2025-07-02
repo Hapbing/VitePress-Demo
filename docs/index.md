@@ -7,7 +7,7 @@ hero:
   text: "前端工具导航"
   tagline: 基于 VitePress 的个人前端导航页面
   image:
-    src: /logo.png
+    src: /image/logo.png
     alt: happy_ice
   actions:
     - theme: brand
@@ -47,7 +47,7 @@ import {
 
 const members = [
   {
-    avatar: 'logo.png',
+    avatar: 'image/logo.png',
     name: 'happy_ice',
     // title: 'Creator',
     links: [
@@ -56,7 +56,7 @@ const members = [
     ]
   },
   {
-    avatar: 'jiahui.jpg',
+    avatar: 'image/jiahui.jpg',
     name: '臣心',
     // title: 'Creator',
     // links: [

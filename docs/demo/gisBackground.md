@@ -1,7 +1,7 @@
-## ![我的头像](/logo.png){.avatar}污染环境风险防控后台系统
+## ![我的头像](/image/logo.png){.avatar}污染环境风险防控后台系统
 
 <p align="center">
-  <img src="/bk.png" alt="home" width="80%" />
+  <img src="/image/bk.png" alt="home" width="80%" />
 </p>
 
 >接触到了spring boot，后端系统开发，越写越难受，前端越写越多。

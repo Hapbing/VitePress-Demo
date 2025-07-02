@@ -1,6 +1,6 @@
-## ![我的头像](/logo.png){.avatar}电站信息化数字孪生系统
+## ![我的头像](/image/logo.png){.avatar}电站信息化数字孪生系统
 <p align="center">
-  <img src="/dianzhanxinxihua.png" alt="home" width="80%" />
+  <img src="/image/dianzhanxinxihua.png" alt="home" width="80%" />
 </p>
 
 <!-- ### 访问链接 -->
