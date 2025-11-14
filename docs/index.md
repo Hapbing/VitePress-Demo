@@ -36,6 +36,11 @@ features:
   - icon: 🛏️
     title: 一个想躺平的开发小白
     #details: 一个想躺平的开发小白
+  - icon: 🔧
+    title: 图片+PDF合并工具
+    details: 一个在线合并图片与PDF文件的工具网站
+    link: https://happyicemerge.ct.ws/#/
+    linkText: 在线使用
 ---
 
 <script setup>
