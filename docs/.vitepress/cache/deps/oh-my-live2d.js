@@ -28,7 +28,7 @@ var require_path = __commonJS({
   }
 });
 
-// node_modules/oh-my-live2d/dist/index.js
+// node_modules/.pnpm/oh-my-live2d@0.19.3/node_modules/oh-my-live2d/dist/index.js
 var D2 = Object.defineProperty;
 var tf = Object.getOwnPropertySymbols;
 var N2 = Object.prototype.hasOwnProperty;
