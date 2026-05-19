@@ -1,89 +1,107 @@
----
+﻿---
 title: Windows 使用 NSSM 以服务方式运行 JAR 包
 aside: true
 ---
 
-# 使用 NSSM 在 Windows 中以服务方式运行 JAR 包
+# Windows 使用 NSSM 以服务方式运行 JAR 包
 
-在 Windows 系统中，Java 程序（`.jar` 文件）默认只能通过命令行运行。  
-如果希望在系统启动时自动运行，并作为后台服务持续运行，可以使用 **NSSM（Non-Sucking Service Manager）** 工具将 JAR 包注册为系统服务。去避免命令行窗口的留存状态。
+在 Windows 系统中，Java 程序通常通过命令行运行。如果希望系统启动时自动运行，并作为后台服务持续运行，可以使用 **NSSM（Non-Sucking Service Manager）** 将 JAR 包注册为 Windows 服务。
 
+## 准备工作
 
-##  NSSM 下载
-
-- 已安装 **Java 环境（JDK 或 JRE）**
-- 已准备好 `.jar` 可执行包
-- 下载 NSSM 网址（需要代理）：[NSSM](https://nssm.cc/download) 
-- （无代理下载）提供下载[NSSM](https://happyice.ct.ws/example/nssm-2.24.zip) 
-
+- 已安装 Java 环境，例如 JDK 或 JRE。
+- 已准备好可执行的 `.jar` 文件。
+- 下载 NSSM：[官方下载](https://nssm.cc/download)。
+- 无法访问官网时，可使用备用下载：[nssm-2.24.zip](https://happyice.ct.ws/example/nssm-2.24.zip)。
 
 ## 安装并配置 NSSM 服务
 
-### 第一步：打开终端（CMD）
+### 1. 以管理员身份打开 CMD
 
-使用管理员身份打开命令提示符。
+使用管理员权限打开命令提示符，进入 NSSM 所在目录。
 
-### 第二步：使用 NSSM 安装服务
+### 2. 安装服务
 
 ```sh
 nssm install ServiceName
 ```
-`ServiceName`是你注册的名称，可以更改，但一定要避免例如Mysql80以及其他系统名称，避免占用。
-执行后会弹出一个图形配置窗口：
-![nssm](/nssm/nssm1.png)
 
-### 第三步：在 NSSM 配置窗口中填写内容
+`ServiceName` 是要注册的服务名称，可以自定义，但建议避免使用 `Mysql80` 等已被系统或其他软件占用的服务名。
 
-#### Application 标签页
-- Path：填写你的 `java.exe` 安装路径
-- Startup directory：填写你的 `.jar` 所在目录
-- Arguments：填写运行参数：
+执行后会弹出图形化配置窗口：
+
+![NSSM 安装窗口](/nssm/nssm1.png)
+
+### 3. 配置 Application 选项
+
+在 `Application` 标签页中填写：
+
+- `Path`：填写 `java.exe` 的安装路径。
+- `Startup directory`：填写 `.jar` 文件所在目录。
+- `Arguments`：填写启动参数。
+
 ```text
 -jar app.jar
 ```
-![nssm](/nssm/nssm2.png)
--  I/O 标签页可以增加日志的输出位置，文件后缀以`.log`结尾。
-![nssm](/nssm/nssm3.png)
-- 之后点击`Install service`即可。
 
-### 启动服务
-在命令行中输入以下命令启动服务：
+![NSSM Application 配置](/nssm/nssm2.png)
+
+### 4. 配置日志输出
+
+在 `I/O` 标签页中可以配置日志输出路径，建议文件后缀使用 `.log`。
+
+![NSSM 日志配置](/nssm/nssm3.png)
+
+配置完成后点击 `Install service` 即可安装服务。
+
+## 启动服务
+
+在命令行中启动服务：
+
 ```sh
 nssm start ServiceName
 ```
-或者在Windows系统的服务配置找到该服务点击启动。
-![nssm](/nssm/nssm4.png)
 
-### 运行结果
-![nssm](/nssm/nssm5.png)
+也可以在 Windows 服务管理器中找到该服务并点击启动。
 
-### 其他命令
+![Windows 服务列表](/nssm/nssm4.png)
 
-#### 停止服务
+## 运行结果
+
+![NSSM 运行结果](/nssm/nssm5.png)
+
+## 常用命令
+
+### 停止服务
+
 ```sh
 nssm stop ServiceName
 ```
 
-#### 编辑服务
+### 编辑服务
+
 ```sh
 nssm edit ServiceName
 ```
 
-#### 卸载服务
+### 卸载服务
+
 ```sh
 nssm remove ServiceName
 ```
 
-### 如果win系统下运行的Tomcat，该框架其实也是提供了注册服务。
+## Tomcat 服务补充
 
-- 进入`tomcat/bin` 目录下有 `service.bat` 文件
-- 该目录下打开命令行（CMD）
-- 输入以下命令
+如果是 Windows 下运行 Tomcat，也可以使用 Tomcat 自带的服务脚本：
+
+1. 进入 `tomcat/bin` 目录。
+2. 在该目录打开 CMD。
+3. 执行：
+
 ```sh
 service.bat install tomcat8
 ```
-`tomcat8`需要根据版本确定。
 
-类似的关于`geoserver`的启动版本有`.exe` `.war`提供的等启动形式，`.war`本质上是依托的`Tomcat`运行，
-通过`Tomcat`的服务形式启动也可以避免命令行窗口的开启。当然也可以通过`nssm`去启动`geoserver`的`exe`文件形式启动。
+`tomcat8` 需要根据实际 Tomcat 版本调整。
 
+GeoServer 的 `.war` 形式本质上依赖 Tomcat 运行，因此也可以通过注册 Tomcat 服务来实现后台运行。对于 `.exe` 形式的 GeoServer，也可以使用 NSSM 注册为 Windows 服务。

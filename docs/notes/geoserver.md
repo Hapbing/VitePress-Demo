@@ -1,48 +1,40 @@
----
-title: GeoServer部署问题踩坑日记
+﻿---
+title: GeoServer Linux 图层预览问题
 aside: true
 ---
 
-# 踩坑日记
+# GeoServer Linux 图层预览问题
 
-本站总访问量 <span id="busuanzi_value_site_pv" /> 次  
-本站访客数 <span id="busuanzi_value_site_uv" /> 人次  
+本站总访问量 <span id="busuanzi_value_site_pv" /> 次<br>
+本站访客数 <span id="busuanzi_value_site_uv" /> 人次
 
+## 问题描述
 
+GeoServer 部署到 Linux 服务器后，图层预览或相关图像处理能力异常。在 Windows 环境中运行正常，但 Linux 环境下请求可能返回 404 或服务端异常。
 
-## 关于 GeoServer 部署在 Linux 系统中无法进行图层预览的问题
+## 报错详情
 
-### 报错详情
-
-在项目中调用 GeoServer 进行自定义图层加载时，Windows 环境下运行正常，但在 Linux 环境下，前端请求路径报 404。查看 Tomcat 日志后发现如下错误信息：
+Tomcat 日志中可以看到类似错误：
 
 ```text
-org.apache.catalina.core.StandardWrapperValve.invoke 
-在路径为 /meeting-duty 的上下文中，Servlet[springServlet] 的 Servlet.service() 引发了异常：
-Handler processing failed; nested exception is java.lang.NoClassDefFoundError: 
+Handler processing failed; nested exception is java.lang.NoClassDefFoundError:
 Could not initialize class sun.awt.X11GraphicsEnvironment
 
 Caused by: java.lang.NoClassDefFoundError: Could not initialize class sun.awt.X11GraphicsEnvironment
-    at java.lang.Class.forName0(Native Method)
-    at java.lang.Class.forName(Class.java:264)
-    at java.awt.GraphicsEnvironment.createGE(GraphicsEnvironment.java:103)
     at java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment(GraphicsEnvironment.java:82)
     at java.awt.image.BufferedImage.createGraphics(BufferedImage.java:1181)
-    at com.tangcy.npcmeeting.utils.PdfWaterMarkKit.drawTranslucentStringPic(PdfWaterMarkKit.java:235)
-    at com.tangcy.npcmeeting.utils.PdfWaterMarkKit.createWaterMarkImgPDF(PdfWaterMarkKit.java:66)
-    at com.tangcy.npcmeeting.utils.PdfWaterMarkKit.createNewWaterMarkImgPDF(PdfWaterMarkKit.java:49)
-    at com.tangcy.npcmeeting.service.UserInfoService.updateByPrimaryKeySelective(UserInfoService.java:254)
-    ...
 ```
 
-### 原因分析
-这是由于 Java 程序在图像处理时默认尝试访问图形界面（X11）。
-在 Linux 环境中，如果服务器没有图形界面（headless），或者缺少显示设备、键盘或鼠标，就会导致该错误。
+## 原因分析
 
-### 解决方法
-在 tomcat/bin/catalina.sh 脚本中加入以下配置，使 Java 运行于无头模式（headless mode）即可解决：
+Java 程序在进行图像处理时，默认可能会尝试访问图形界面环境，也就是 X11。Linux 服务器通常是无桌面环境的 headless 模式，如果缺少显示设备、键盘或鼠标等图形环境，就可能触发该错误。
+
+## 解决方法
+
+在 `tomcat/bin/catalina.sh` 中增加以下 JVM 参数，让 Java 以无头模式运行：
 
 ```sh
 JAVA_OPTS="$JAVA_OPTS -Djava.awt.headless=true"
 ```
 
+保存后重启 Tomcat 或 GeoServer 服务即可。

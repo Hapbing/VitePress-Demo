@@ -1,15 +1,19 @@
-## ![我的头像](/image/logo.png){.avatar}村落奖补平台首页设计
+﻿# 村落奖补平台首页
 
 <p align="center">
-  <img src="/image/miyunjiangbu.png" alt="home" width="80%" />
+  <img src="/image/miyunjiangbu.png" alt="村落奖补平台首页" width="80%" />
 </p>
 
->第一次接触HTML，开发系统宣传页。
+> 第一次接触 HTML 时完成的系统宣传页，用于展示村落奖补平台的核心信息和访问入口。
 
-村落奖补平台首页设计的界面设计，为奖补系统建立宣传页。
+## 项目说明
 
-### 访问链接
+该页面主要用于奖补系统的宣传展示，包含平台介绍、信息展示和视觉引导。项目偏静态展示类型，适合电脑端浏览。
+
+## 访问链接
+
 ::: tip
-电脑端访问效果更佳！
+建议使用电脑端访问，展示效果更完整。
 :::
-👉[访问村落奖补平台](https://happyice.ct.ws/example/VillageRewarddisplay)
+
+👉 [访问村落奖补平台](https://happyice.ct.ws/example/VillageRewarddisplay)

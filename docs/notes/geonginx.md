@@ -1,43 +1,45 @@
----
-title: GeoServer 使用 Nginx 代理 HTTPS 报 400 错误
+﻿---
+title: GeoServer 使用 Nginx 代理 HTTPS 后请求 400
 aside: true
 ---
 
-# GeoServer 使用 Nginx 代理 HTTPS 报 400 错误
+# GeoServer 使用 Nginx 代理 HTTPS 后请求 400
 
-在使用 Nginx 代理 GeoServer 的 HTTPS 服务时，登录操作可能会出现 **400 Bad Request** 错误，导致账号无法登录。
+在使用 Nginx 反向代理 GeoServer 的 HTTPS 服务时，登录操作可能出现 **400 Bad Request**，导致账号无法登录或页面请求异常。
 
+## 问题现象
 
+- 登录页面提交后提示 **400 Bad Request**。
+- 浏览器控制台中部分请求被拦截或被 Nginx 拒绝。
+- GeoServer 后台日志没有明显错误，因为请求可能还没有进入 GeoServer。
 
-## 详细问题
+## 原因分析
 
-GeoServer 在某些版本中，在登录账号时会默认向 HTTP 发送部分认证或验证请求。  
-当我们使用 Nginx 进行 HTTPS 反向代理时，这些请求因协议不匹配而被拒绝，从而导致登录失败或页面加载异常。
-
-
-
-## 错误现象
-
-- 登录页面提交后提示 **400 Bad Request**
-- 控制台可能提示某些请求被浏览器拦截或被 Nginx 拒绝
-- GeoServer 后台日志无明显错误（因为请求根本没有进入）
-
-
+GeoServer 某些版本会对跨站请求进行 CSRF 校验。使用 Nginx 代理 HTTPS 后，如果代理域名没有加入 GeoServer 的 CSRF 白名单，就可能被 GeoServer 拒绝。
 
 ## 解决方法
 
-需要在 GeoServer 的 `web.xml` 文件中 **手动添加 CSRF 白名单配置项**，允许来自指定域名的跨站请求。
+在 GeoServer 的 `web.xml` 中添加 CSRF 白名单配置，允许指定域名的请求。
 
-### 步骤如下：
+### 操作步骤
 
-1. 打开 GeoServer 部署目录中的以下文件：
-/webapps/geoserver/WEB-INF/web.xml
-2. 在 `<web-app>` 标签内添加如下配置：
+1. 打开 GeoServer 部署目录中的文件：
+
+```text
+webapps/geoserver/WEB-INF/web.xml
+```
+
+2. 在 `<web-app>` 标签内添加配置：
+
 ```xml
 <context-param>
-    <param-name>GEOSERVER_CSRF_WHITELIST</param-name>
-    <param-value>自己的域名</param-value>
+  <param-name>GEOSERVER_CSRF_WHITELIST</param-name>
+  <param-value>your-domain.com</param-value>
 </context-param>
 ```
-3. 保存文件后，重启 Tomcat 或 GeoServer 服务，配置即可生效。
 
+3. 保存文件后，重启 Tomcat 或 GeoServer 服务。
+
+::: tip
+`your-domain.com` 需要替换成你实际使用的访问域名。如果有多个域名，可以根据 GeoServer 版本支持的格式进行配置。
+:::

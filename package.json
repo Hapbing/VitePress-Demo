@@ -1,6 +1,6 @@
 {
-  "name": "demo",
-  "version": "0.0.0",
+  "name": "vitepress-demo",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -24,5 +24,6 @@
     "vite-plugin-vue-devtools": "^7.6.8",
     "vitepress": "^1.5.0",
     "vitepress-theme-website": "^1.0.8"
-  }
+  },
+  "description": "基于 VitePress 的个人前端导航、作品集与技术笔记站点"
 }

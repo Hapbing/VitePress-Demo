@@ -1,12 +1,19 @@
+﻿# 后台管理系统框架
 
-
-## ![我的头像](/image/logo.png){.avatar}本地运行开源后台管理系统框架
 <p align="center">
-  <img src="/image/tanb.png" alt="home" width="80%" />
+  <img src="/image/tanb.png" alt="后台管理系统框架" width="80%" />
 </p>
 
+> 本地复现并整理的一套后台管理系统框架，用于学习中后台项目结构、登录流程和页面组织。
+
+## 项目说明
+
+该项目主要用于练习后台管理系统常见能力，包括登录页、菜单、表格、表单、权限入口和路由结构等。
+
 ::: tip
-本地复现大佬开源系统案例
+适合作为中后台项目学习和页面复现案例。
 :::
-### 访问链接
-👉[后台系统地址](https://happyice.ct.ws/example/tan/?i=1#/login)
+
+## 访问链接
+
+👉 [后台系统地址](https://happyice.ct.ws/example/tan/?i=1#/login)

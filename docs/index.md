@@ -1,46 +1,50 @@
----
-# https://vitepress.dev/reference/default-theme-home-page
+﻿---
 layout: home
 
 hero:
-  name: "happy_ice"
-  text: "前端工具导航"
-  tagline: 基于 VitePress 的个人前端导航页面
+  name: happy_ice
+  text: 前端导航、AI 知识库与个人作品集
+  tagline: 用 VitePress 搭建的个人知识站，沉淀开发工具、AI 实践、项目作品、技术栈和踩坑笔记。
   image:
     src: /image/logo.png
     alt: happy_ice
   actions:
     - theme: brand
-      text: 前端工具导航
+      text: 进入 AI 知识库
+      link: /ai/
+    - theme: alt
+      text: 查看工具导航
       link: /list/
     - theme: alt
-      text: 技术栈
-      link: /stack/
+      text: 浏览我的作品
+      link: /demo/
 
 features:
-  - icon: 🐟
-    title: 学习方法
-    details: CV大法更好的摸鱼
+  - icon: 🤖
+    title: AI 知识库
+    details: 整理 AI 工具、模型接入、Claude Code、DeepSeek、提示词方法和日常使用经验。
+    link: /ai/
+    linkText: 学习 AI 实践
+  - icon: 🧭
+    title: 前端工具导航
+    details: 收集开发、可视化、Vue、React、Node、构建工具、学习资料等常用站点。
     link: /list/
-    linkText: 工具导航
-  - icon: 🕹️
-    title: CV作品集
-    link: /demo/village
-    linkText: 作品导航
-    details: 开发好难，算了，不管了直接CV
-  - icon: 💣
-    title: 踩坑日记
-    details: 踩过的坑，再踩一遍就不难受了🤤
-    link: /notes/tresjs
-    linkText: 踩坑日记
-  - icon: 🛏️
-    title: 一个想躺平的开发小白
-    #details: 一个想躺平的开发小白
-  - icon: 🔧
-    title: 图片+PDF合并工具
-    details: 一个在线合并图片与PDF文件的工具网站
-    link: https://happyicemerge.ct.ws/#/
-    linkText: 在线使用
+    linkText: 进入导航
+  - icon: 🧩
+    title: 个人作品集
+    details: 汇总项目截图、演示地址、开源仓库和实践说明，记录每一次开发成长。
+    link: /demo/
+    linkText: 查看作品
+  - icon: 📝
+    title: 踩坑笔记
+    details: 记录 GeoServer、Nginx、TresJS、Canal、NSSM 等开发与部署问题。
+    link: /notes/
+    linkText: 阅读笔记
+  - icon: 🛠️
+    title: 技术栈清单
+    details: 展示前端、后端、数据库、DevOps、测试与开发工具等能力地图。
+    link: /stack/
+    linkText: 查看技术栈
 ---
 
 <script setup>
@@ -54,7 +58,7 @@ const members = [
   {
     avatar: 'image/logo.png',
     name: 'happy_ice',
-    // title: 'Creator',
+    title: '站点维护者 / 前端开发学习者',
     links: [
       { icon: 'github', link: 'https://github.com/Hapbing' },
       { icon: 'gitee', link: 'https://gitee.com/hpice' }
@@ -62,23 +66,20 @@ const members = [
   },
   {
     avatar: 'image/jiahui.jpg',
-    name: '臣心',
-    // title: 'Creator',
-    // links: [
-    //   { icon: 'github', link: 'https://github.com/yyx990803' },
-    //   { icon: 'gitee', link: 'https://twitter.com/youyuxi' }
-    // ]
-  },
+    name: '臻心',
+    title: '内容共建者'
+  }
 ]
 </script>
 
 <VPTeamPage>
   <VPTeamPageTitle>
     <template #title>
-      制作人员
+      制作成员
+    </template>
+    <template #lead>
+      记录学习、作品、AI 实践与开发经验，把踩过的坑变成下一次出发的路标。
     </template>
   </VPTeamPageTitle>
-  <VPTeamMembers
-    :members="members"
-  />
+  <VPTeamMembers :members="members" />
 </VPTeamPage>
