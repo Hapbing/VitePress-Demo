@@ -4,6 +4,7 @@
 
 ## 内容导航
 
+- [AI 工具使用地图](/ai/tool-map)
 - [Claude Code 接入 DeepSeek](/ai/claude-code-deepseek)
 - [常用 AI 工具清单](/ai/tools)
 - [提示词与使用方法](/ai/prompt-patterns)

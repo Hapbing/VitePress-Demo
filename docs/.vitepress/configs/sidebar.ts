@@ -7,6 +7,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       collapsed: false,
       items: [
         { text: '知识库首页', link: '/ai/' },
+        { text: 'AI 工具使用地图', link: '/ai/tool-map' },
         { text: 'Claude Code 接入 DeepSeek', link: '/ai/claude-code-deepseek' },
         { text: '常用 AI 工具清单', link: '/ai/tools' },
         { text: '提示词与使用方法', link: '/ai/prompt-patterns' },
